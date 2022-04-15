@@ -22,12 +22,12 @@ pipeline {
         }   
     stage ('Docker build') {
         steps {
-             sh 'docker build -t ${dockerimage}:$BUILD_NUMBER'
+             sh 'docker build -t ${dockerimage}:${BUILD_NUMBER}'
             }
         }  
     stage ('Docker run') {
         steps {
-             sh 'docker run --name ${dockercontainer} ${dockerimage}:$BUILD_NUMBER'
+             sh 'docker run --name ${dockercontainer} ${dockerimage}:${BUILD_NUMBER}'
             }
         }
     }
